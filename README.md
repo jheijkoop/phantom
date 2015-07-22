@@ -160,9 +160,9 @@ This was never possible before in phantom, and now from 1.7.0 onwards we feature
 =====================================================
 <a href="#table-of-contents">back to top</a>
 
-We love Cassandra to bits and use it in every bit our stack. phantom makes it super trivial for Scala users to embrace Cassandra.
+We love Cassandra to bits and use it in every bit of our stack. phantom makes it super trivial for Scala users to embrace Cassandra.
 
-Cassandra is highly scalable and it's by far the most powerful database technology available, open source or otherwise.
+Cassandra is highly scalable and it is by far the most powerful database technology available, open source or otherwise.
 
 Phantom is built on top of the [Datastax Java Driver](https://github.com/datastax/java-driver), which does most of the heavy lifting. 
 
