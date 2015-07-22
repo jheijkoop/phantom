@@ -85,8 +85,8 @@ So you can have the series of ```import com.websudos.phantom.dsl._, import com.w
 <a id="propagating-parse-errors">Propagating parse errors</a>
 =============================================================
 
-Until now, our implementation of Cassandra primitives has been based on the Datastax Java Driver and on an ```Option``` based DSL. This made it hard to deal with parse errors at runtime, specifically those situations when
-the DSL was unable to parse the required type from the Cassandra result or in a simple case where ```null`` was returned for a non-optional column.
+Until now, our implementation of Cassandra primitives has been based on the Datastax Java Driver and on an ```Option``` based DSL. This made it hard to deal with parse errors at runtime, specifically in those situations when
+the DSL was unable to parse the required type from the Cassandra result or in a simple case where ```null``` was returned for a non-optional column.
 
 The core of the ```Column[Table, Record, ValueType].apply(value: ValueType]``` method which was used to parse rows in a type safe manner was written like this:
 
@@ -98,10 +98,10 @@ def apply(row: Row):  = optional(row).getOrElse(throw new Exception("Couldn't pa
 
 ```
 
-This approach left the original exception which caused the parser to parse a ```null``` and subsequently a ```None``` was ignored.
+This approach discarded the original exception which caused the parser to parse a ```null``` and subsequently a ```None``` was ignored.
 
 With the new type-safe primitive interface that no longer relies on the Datastax Java driver we were also able to move the ```Option``` based parsing mechanism to a ```Try``` mechanism which will now
- log all parse errors un-altered, in the exact same way the are thrown at compile time, using the ```logger``` for the given table.
+ log all parse errors un-altered, in the exact same way as are thrown at compile time, using the ```logger``` for the given table.
  
 Internally, we are now using something like this: 
  
@@ -119,7 +119,7 @@ Internally, we are now using something like this:
 
 ```
 
-The exception is now logged and propagated with no interference. We intercept it to provide consistent logging in the same table logger where you would naturally monitor for logs. 
+The exception is now logged and propagated as is. We intercept it to provide consistent logging in the same table logger where you would naturally monitor for logs. 
 
 
 <a id="improving-query-performance">Improving query performance</a>
