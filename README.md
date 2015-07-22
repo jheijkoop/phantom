@@ -218,9 +218,7 @@ with prepared statements along with a nice DSL to get things done. Not to say it
 ======================================================================
 
 For ease of use and far better management of documentation, we have decided to export the `README.md` to a proper
-Wiki page, now available [here](https://github.com/websudos/phantom/wiki/). This is a standard Github Wiki in markdown foramt
-that will allow us to add documentation at a much much faster pace than before and hopefully vastly improve
-your experience using phantom.
+Wiki page, now available [here](https://github.com/websudos/phantom/wiki/). This is a standard Github Wiki in markdown format that will allow us to add documentation at a much much faster pace than before and hopefully vastly improve your experience using phantom.
 
 
 
