@@ -67,7 +67,7 @@ QueryBuilder with full support for all CQL 3 features and even some of the more 
 offer a tool that's comprehensive and doesn't miss out on any feature of the protocol, no matter how small.
 
 If you are wondering what happened to 1.7.0, it was never publicly released as testing the new querybuilder entailed serious internal efforts and for such a drastic change
-we wanted to do as much as possible to eliminate books. Surely there will be some still found, but hopefully very few and with your help they will be very short lived.
+we wanted to do as much as possible to eliminate bugs. Surely there will be some still found, but hopefully very few and with your help they will be very short lived.
 
 Ditching the Java Driver was not a question of code quality in the driver, but rather an opportunity to exploit the more advanced Scala type system features
 to introduce behaviour such as preventing duplicate limits on queries using phantom types, to prevent even more invalid queries from compiling, and to switch
@@ -85,7 +85,7 @@ So you can have the series of ```import com.websudos.phantom.dsl._, import com.w
 <a id="propagating-parse-errors">Propagating parse errors</a>
 =============================================================
 
-Until now, our implementation of Cassandra primitives has been based on the Datastax Java Driver and on an ```Option``` based DSL. This made it heard to deal with parse errors at runtime, specifically those situations when
+Until now, our implementation of Cassandra primitives has been based on the Datastax Java Driver and on an ```Option``` based DSL. This made it hard to deal with parse errors at runtime, specifically those situations when
 the DSL was unable to parse the required type from the Cassandra result or in a simple case where ```null`` was returned for a non-optional column.
 
 The core of the ```Column[Table, Record, ValueType].apply(value: ValueType]``` method which was used to parse rows in a type safe manner was written like this:
